@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>this is index.html at port 8000</h2>
+    <button id="button">发送同源请求</button>
+    <button id="cross-button">发送跨域请求</button>
+    <script src="/public/axios.min.js"></script>
+    <script>
+      function getCookie(name) {
+        var arr,
+          reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)')
+        if ((arr = document.cookie.match(reg))) return unescape(arr[2])
+        else return null
+      }
+
+      axios.defaults.headers.common['x-csrf-token'] = getCookie('csrfToken')
+
+      const button = document.querySelector('#button')
+      const crossButton = document.querySelector('#cross-button')
+
+      axios
+        .post('http://127.0.0.1:7001/api/todo', { title: 'dd' })
+        .then(res => {
+          console.log(res)
+        })
+      // 发送同域请求
+      button.onclick = function () {
+        axios.post('http://127.0.0.1:7001/api/user', {}).then(res => {
+          console.log(res)
+        })
+      }
+      // 发送跨域请求
+      crossButton.onclick = function () {
+        axios({
+          method: 'get',
+          withCredentials: true, // 跨域携带 cookie
+          url: 'http://localhost:3008/api/anotherService'
+        }).then(res => {
+          console.log(res)
+        })
+      }
+    </script>
+  </body>
+</html>

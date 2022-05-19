@@ -1,11 +1,9 @@
 {
   "extends": "eslint-config-egg/typescript",
   "rules": {
-    "space-in-parens": 2,
-    "semi": ["error", "never"],
-    "strict": 0,
-    "array-bracket-spacing": ["error", "never"],
-    "comma-dangle": ["error", "never"]
+    "@typescript-eslint/semi": ["error", "never"],
+    "comma-dangle": ["error", "never"],
+    "@typescript-eslint/strict": 0
   },
   "parserOptions": {
     "project": "./tsconfig.json"
