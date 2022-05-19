@@ -19,28 +19,33 @@
         else return null
       }
 
-      axios.defaults.headers.common['x-csrf-token'] = getCookie('csrfToken')
+      // axios.defaults.headers.common['x-csrf-token'] = getCookie('csrfToken')
+      // axios.defaults.withCredentials = true
 
       const button = document.querySelector('#button')
       const crossButton = document.querySelector('#cross-button')
 
       axios
-        .post('http://127.0.0.1:7001/api/todo', { title: 'dd' })
+        .post('http://chris.xycxedu.cn:7001/api/test/getuser', {
+          title: 'dd'
+        })
         .then(res => {
           console.log(res)
         })
       // 发送同域请求
       button.onclick = function () {
-        axios.post('http://127.0.0.1:7001/api/user', {}).then(res => {
-          console.log(res)
-        })
+        axios
+          .post('http://chris.xycxedu.cn:7001/api/test/list', {})
+          .then(res => {
+            console.log(res)
+          })
       }
       // 发送跨域请求
       crossButton.onclick = function () {
         axios({
-          method: 'get',
+          method: 'post',
           withCredentials: true, // 跨域携带 cookie
-          url: 'http://localhost:3008/api/anotherService'
+          url: 'http://127.0.0.1:7001/api/test/getDate'
         }).then(res => {
           console.log(res)
         })

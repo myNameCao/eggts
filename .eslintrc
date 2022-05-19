@@ -3,6 +3,7 @@
   "rules": {
     "@typescript-eslint/semi": ["error", "never"],
     "comma-dangle": ["error", "never"],
+    "array-bracket-spacing": ["error", "never"],
     "@typescript-eslint/strict": 0
   },
   "parserOptions": {
