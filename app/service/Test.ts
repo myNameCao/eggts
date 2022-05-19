@@ -8,7 +8,7 @@ export default class Test extends Service {
    * sayHi to you
    * @param name - your name
    */
-  public async sayHi(name: string) {
+  public async list(name: string) {
     return `hi, ${name}`
   }
 }

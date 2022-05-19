@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>晓羊策学-让教育更加高效而美好</title>
+    <meta name="keywords" content="智慧校园,新高考,网上阅卷,学情质量,成绩分析,教学管理" />
+
+    <script type="module" crossorigin src="/public/assets/index.fe35e7b9.js"></script>
+    <link rel="modulepreload" href="/public/assets/vendor.b1ca1e03.js" />
+    <link rel="stylesheet" href="/public/assets/index.11aae372.css" />
+  </head>
+  <body>
+    <div id="xy-loading-box">
+      <div class="xy-loading-auto">
+        <div class="xy-loading-auto-box">
+          <div class="xy-loading-img-box">
+            <img
+              class="xy-loading-logo animate__animated animate__rotateIn"
+              src="/assets/logo.fcb61646.svg"
+            />
+          </div>
+
+          <div class="xy-loading-text-box">
+            <div class="xy-loading-text">晓羊策学</div>
+            <div class="xy-loading-text">让教育更加高效而美好</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="app"></div>
+  </body>
+</html>
+<script>
+  window.timeStart = Date.now()
+  const loadingBox = document.getElementById('xy-loading-box')
+  const initData = JSON.parse(localStorage.getItem('initLoading') || '{}')
+  if (initData.loading == 1) {
+    loadingBox.style.display = 'none'
+  }
+  setTimeout(() => {
+    textAni()
+
+    const loadingTextBox = document.querySelector('.xy-loading-text-box')
+    if (!loadingTextBox) return
+    loadingTextBox.style.width = '120px'
+    loadingTextBox.classList.add('animate__animated', 'animate__zoomIn', 'animate__fast')
+
+    const loadingImg = document.querySelector('.xy-loading-img-box')
+    loadingImg.style.width = '50px'
+    loadingImg.style.height = '50px'
+  }, 1500)
+  //文本动画
+  function textAni(num = 0) {
+    const loadingText = document.getElementsByClassName('xy-loading-text')
+    if (!loadingText.length) return
+    let maxText = loadingText.length - 1
+    setTimeout(() => {
+      if (!loadingBox) return
+      const display = loadingBox.style.display
+      if (display !== 'none') textAni(++num > maxText ? 0 : num)
+    }, 3000)
+
+    loadingText[num].classList.add('xy-ani-active')
+
+    let idx = !num ? maxText : num - 1
+    loadingText[idx].classList.remove('xy-ani-active')
+    loadingText[idx].classList.add('xy-ani-fade')
+    setTimeout(() => {
+      if (!loadingText.length) return
+      loadingText[idx].classList.remove('xy-ani-fade')
+    }, 2000)
+  }
+</script>

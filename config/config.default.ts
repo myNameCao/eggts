@@ -14,19 +14,16 @@ export default (appInfo: EggAppInfo) => {
       '.html': 'nunjucks'
     }
   }
-
-  config.view = {
-    defaultViewEngine: 'nunjucks',
-    mapping: {
-      '.tpl': 'nunjucks',
-      '.html': 'nunjucks'
-    }
-  }
-
   config.security = {
     csrf: {
       headerName: 'x-csrf-token' // 通过 header 传递 CSRF token 的默认字段为 x-csrf-token
     }
+  }
+
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET, HEAD, PUT, POST, DELETE, PATCH',
+    credentials: true
   }
 
   // add your egg config in here
