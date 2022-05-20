@@ -1,3 +1,11 @@
+/*
+ * @Author: hefei.cao hefei.cao@xiaoyangedu.com
+ * @Date: 2022-05-20 17:11:19
+ * @LastEditors: hefei.cao hefei.cao@xiaoyangedu.com
+ * @LastEditTime: 2022-05-20 17:20:37
+ * @FilePath: \eggts\config\config.default.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg'
 
 export default (appInfo: EggAppInfo) => {
@@ -16,7 +24,7 @@ export default (appInfo: EggAppInfo) => {
   }
   config.security = {
     csrf: {
-      enable: true,
+      enable: false,
       headerName: 'x-csrf-token' // 通过 header 传递 CSRF token 的默认字段为 x-csrf-token
     }
     // domainWhiteList: ['http://chris.xycxedu.cn']
