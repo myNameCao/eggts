@@ -19,7 +19,7 @@
         else return null
       }
 
-      // axios.defaults.headers.common['x-csrf-token'] = getCookie('csrfToken')
+      axios.defaults.headers['x-csrf-token'] = getCookie('csrfToken')
       // axios.defaults.withCredentials = true
 
       const button = document.querySelector('#button')

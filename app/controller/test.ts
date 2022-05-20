@@ -16,7 +16,9 @@ export default class TestController extends Controller {
     // 客户端保存 cookie
     ctx.cookies.set('chris_token', 'abcefg', {
       maxAge: 2000000,
-      httpOnly: true
+      encrypt: true,
+      httpOnly: true,
+      signed: true
     })
     ctx.status = 200
   }
