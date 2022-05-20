@@ -16,14 +16,14 @@ export default (appInfo: EggAppInfo) => {
   }
   config.security = {
     csrf: {
-      enable: false,
+      enable: true,
       headerName: 'x-csrf-token' // 通过 header 传递 CSRF token 的默认字段为 x-csrf-token
-    },
-    domainWhiteList: ['http://chris.xycxedu.cn:7001']
+    }
+    // domainWhiteList: ['http://chris.xycxedu.cn']
   }
 
   config.cors = {
-    origin: 'http://chris.xycxedu.cn:7001',
+    origin: ctx => ctx.get('origin'),
     allowMethods: 'GET, HEAD, PUT, POST, DELETE, PATCH',
     credentials: true
   }
