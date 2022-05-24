@@ -36,7 +36,10 @@ export default (appInfo: EggAppInfo) => {
     enable: true,
 
     // 路由为/news才使用中间件
-    match: cxt => cxt.url.match(/^\/api/g),
+    match: cxt => {
+      const reg = /^\/api/g
+      return reg.test(cxt.url)
+    },
 
     // 路由为/news不使用中间件
     // ignore:'/news',

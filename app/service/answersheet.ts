@@ -6,6 +6,7 @@ const CONF = {
     list: '/api/answer/sheet/getAnswerSheetByPage',
     delete: '/api/answer/sheet/deleteAnswerSheet',
     savecard: '/api/answer/sheet/saveOrUpdateAnswerSheet',
+    downloadCard: '/api/answer/sheet/downloadPdf',
     getDetail: '/api/answer/sheet/getAnswerSheet'
   }
 }
@@ -20,7 +21,6 @@ export default class answerSheet extends Service {
         CXTOKEN: ctx.get('CXTOKEN')
       }
     })
-    // console.log(result)
     return result.data?.data || {}
   }
   public async getDetail() {
@@ -32,7 +32,6 @@ export default class answerSheet extends Service {
         CXTOKEN: ctx.get('CXTOKEN')
       }
     })
-    // console.log(result)
     return result.data?.data || {}
   }
   public async delcard() {
@@ -57,6 +56,19 @@ export default class answerSheet extends Service {
         CXTOKEN: ctx.get('CXTOKEN')
       }
     })
-    return result.data || {}
+    return result.data || ''
+  }
+  public async download() {
+    const { ctx } = this
+    const { asId } = ctx.query
+    const result = await ctx.curl(`${CONF.host}${CONF.path.downloadCard}`, {
+      streaming: true,
+      data: { asId },
+      headers: {
+        CXTOKEN: ctx.query.CXTOKEN
+      }
+    })
+    console.log(result, 111)
+    return result.data || ''
   }
 }

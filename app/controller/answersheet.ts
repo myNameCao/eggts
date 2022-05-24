@@ -21,4 +21,9 @@ export default class answersheetController extends Controller {
     const result = await service.answersheet.savecard()
     ctx.setBody(result)
   }
+  public async download() {
+    const { ctx, service } = this
+    const result = await service.answersheet.download()
+    ctx.setBody(result)
+  }
 }
