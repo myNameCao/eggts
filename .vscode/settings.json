@@ -3,5 +3,7 @@
   "eslint.validate": ["typescript"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "dart.flutterCustomEmulators": [] // 每次保存的时候自动格式化
+  "fileheader.configObj": {
+    "autoAdd": false
+  }
 }

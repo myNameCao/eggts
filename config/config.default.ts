@@ -33,7 +33,7 @@ export default (appInfo: EggAppInfo) => {
 
   config.appcookie = {
     // 是否启用中间件
-    enable: false,
+    enable: true,
 
     // 路由为/news才使用中间件
     match: cxt => cxt.url.match(/^\/api/g),
