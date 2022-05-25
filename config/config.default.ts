@@ -31,6 +31,20 @@ export default (appInfo: EggAppInfo) => {
   // add your egg config in here
   config.middleware = ['initBody', 'appcookie']
 
+  config.initBody = {
+    // 是否启用中间件
+    enable: true,
+
+    // 路由为/news才使用中间件
+    match: cxt => {
+      const reg = /^\/api/g
+      return reg.test(cxt.url)
+    },
+
+    // 路由为/news不使用中间件
+    // ignore:'/news',
+    title: 'this is  middleware'
+  }
   config.appcookie = {
     // 是否启用中间件
     enable: true,
