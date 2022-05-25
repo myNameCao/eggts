@@ -50,8 +50,9 @@ export default class answerSheet extends Service {
     const result = await ctx.curl(`${CONF.host}${CONF.path.savecard}`, {
       method: 'POST',
       dataType: 'json',
-      data: ctx.request.body,
+      // 必须要写的
       contentType: 'json',
+      data: ctx.request.body,
       headers: {
         CXTOKEN: ctx.get('CXTOKEN')
       }

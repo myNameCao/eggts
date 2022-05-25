@@ -24,6 +24,7 @@ export default class answersheetController extends Controller {
   public async download() {
     const { ctx, service } = this
     const result = await service.answersheet.download()
+
     ctx.set('Content-Type', 'application/octet-stream')
     ctx.set(
       'content-disposition',
