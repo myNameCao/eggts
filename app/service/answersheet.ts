@@ -62,13 +62,18 @@ export default class answerSheet extends Service {
     const { ctx } = this
     const { asId } = ctx.query
     const result = await ctx.curl(`${CONF.host}${CONF.path.downloadCard}`, {
-      streaming: true,
       data: { asId },
+      contentType: 'application/octet-stream',
+      dataType: 'application/octet-stream',
+      timeout: 50000,
       headers: {
         CXTOKEN: ctx.query.CXTOKEN
       }
     })
-    console.log(result, 111)
-    return result.data || ''
+    ctx.set(
+      'content-disposition',
+      'attachment; filename=3%E6%A0%8F%E6%8F%90%E5%8D%A1.pdf'
+    )
+    return result || {}
   }
 }
