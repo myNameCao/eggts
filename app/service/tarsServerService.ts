@@ -32,11 +32,14 @@ export default class tarsServerService extends Service {
       },
       options
     )
-
+    const startTime = new Date().getTime()
     const res = await ctx.curl(url, option)
+    const TcpTime = new Date().getTime() - startTime
+
     if (res.status !== 200) {
       ctx.throw(res.status, res.data.msg, { ...res.data })
     }
-    return res.data?.data || {}
+    const data = res.data?.data || {}
+    return { TcpTime, data }
   }
 }
