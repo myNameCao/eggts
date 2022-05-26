@@ -12,52 +12,37 @@ const CONF = {
 }
 
 export default class answerSheet extends Service {
-  public async getList() {
-    const { ctx } = this
-    const result = await ctx.curl(`${CONF.host}${CONF.path.list}`, {
-      dataType: 'json',
-      data: ctx.query,
-      headers: {
-        CXTOKEN: ctx.get('CXTOKEN')
-      }
-    })
-    return result.data?.data || {}
+  async getList() {
+    const { service } = this
+    const result = await service.tarsServerService.curl(
+      `${CONF.host}${CONF.path.list}`
+    )
+
+    return result
   }
   public async getDetail() {
-    const { ctx } = this
-    const result = await ctx.curl(`${CONF.host}${CONF.path.getDetail}`, {
-      dataType: 'json',
-      data: ctx.query,
-      headers: {
-        CXTOKEN: ctx.get('CXTOKEN')
-      }
-    })
-    return result.data?.data || {}
+    const { service } = this
+    const result = await service.tarsServerService.curl(
+      `${CONF.host}${CONF.path.getDetail}`
+    )
+    return result
   }
   public async delcard() {
-    const { ctx } = this
-    const result = await ctx.curl(`${CONF.host}${CONF.path.delete}`, {
-      dataType: 'json',
-      data: ctx.query,
-      headers: {
-        CXTOKEN: ctx.get('CXTOKEN')
-      }
-    })
-    return result.data?.data || {}
+    const { service } = this
+    const result = await service.tarsServerService.curl(
+      `${CONF.host}${CONF.path.delete}`
+    )
+    return result
   }
   public async savecard() {
-    const { ctx } = this
-    const result = await ctx.curl(`${CONF.host}${CONF.path.savecard}`, {
-      method: 'POST',
-      dataType: 'json',
-      // 必须要写的
-      contentType: 'json',
-      data: ctx.request.body,
-      headers: {
-        CXTOKEN: ctx.get('CXTOKEN')
+    const { service } = this
+    const result = await service.tarsServerService.curl(
+      `${CONF.host}${CONF.path.savecard}`,
+      {
+        method: 'POST'
       }
-    })
-    return result.data || ''
+    )
+    return result
   }
   public async download() {
     const { ctx } = this
