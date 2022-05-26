@@ -20,7 +20,7 @@ export default class tarsServerService extends Service {
       {
         dataType: 'json',
         contentType: 'json',
-        timeout: 10 * 1000,
+        timeout: 50 * 1000,
         data:
           options.method?.toLocaleUpperCase() === 'POST'
             ? ctx.request.body
