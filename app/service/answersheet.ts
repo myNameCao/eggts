@@ -13,35 +13,26 @@ const CONF = {
 
 export default class answerSheet extends Service {
   async getList() {
-    const { service } = this
-    const result = await service.tarsServerService.curl(
-      `${CONF.host}${CONF.path.list}`
-    )
+    const { ctx } = this
+    const result = await ctx.axios(`${CONF.host}${CONF.path.list}`)
 
     return result
   }
   public async getDetail() {
-    const { service } = this
-    const result = await service.tarsServerService.curl(
-      `${CONF.host}${CONF.path.getDetail}`
-    )
+    const { ctx } = this
+    const result = await ctx.axios(`${CONF.host}${CONF.path.getDetail}`)
     return result
   }
   public async delcard() {
-    const { service } = this
-    const result = await service.tarsServerService.curl(
-      `${CONF.host}${CONF.path.delete}`
-    )
+    const { ctx } = this
+    const result = await ctx.axios(`${CONF.host}${CONF.path.delete}`)
     return result
   }
   public async savecard() {
-    const { service } = this
-    const result = await service.tarsServerService.curl(
-      `${CONF.host}${CONF.path.savecard}`,
-      {
-        method: 'POST'
-      }
-    )
+    const { ctx } = this
+    const result = await ctx.axios(`${CONF.host}${CONF.path.savecard}`, {
+      method: 'POST'
+    })
     return result
   }
   public async download() {
