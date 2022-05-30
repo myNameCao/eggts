@@ -2,7 +2,13 @@ import { Controller } from 'egg'
 
 export default class answersheetController extends Controller {
   public async getList() {
+    const listRule = {
+      pageSize: 'string',
+      pageNumber: 'string'
+    }
     const { ctx, service } = this
+
+    ctx.validate(listRule, ctx.query)
     const result = await service.answersheet.getList()
     ctx.setBody(result)
   }

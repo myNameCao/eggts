@@ -40,6 +40,9 @@ export default () => {
         ctx.throw(res.status, res.data.msg, { ...res.data })
       }
       const data = res.data?.data || {}
+
+      ctx.logger.info(`${url}: %s`, JSON.stringify(data))
+
       return { TcpTime, data }
     }
     await next()

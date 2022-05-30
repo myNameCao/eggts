@@ -45,6 +45,21 @@ export default (appInfo: EggAppInfo) => {
     // ignore:'/news',
     title: 'this is  middleware'
   }
+
+  config.axios = {
+    // 是否启用中间件
+    enable: true,
+
+    // 路由为/news才使用中间件
+    match: cxt => {
+      const reg = /^\/api/g
+      return reg.test(cxt.url)
+    },
+
+    // 路由为/news不使用中间件
+    // ignore:'/news',
+    title: 'this is  middleware'
+  }
   config.appcookie = {
     // 是否启用中间件
     enable: true,
