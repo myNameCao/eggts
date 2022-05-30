@@ -22,6 +22,9 @@ export default (appInfo: EggAppInfo) => {
     // domainWhiteList: ['http://chris.xycxedu.cn']
   }
 
+  config.logger = {
+    consoleLevel: 'WARN'
+  }
   config.cors = {
     origin: ctx => ctx.get('origin'),
     allowMethods: 'GET, HEAD, PUT, POST, DELETE, PATCH',
@@ -29,7 +32,7 @@ export default (appInfo: EggAppInfo) => {
   }
 
   // add your egg config in here
-  config.middleware = ['axios', 'initBody', 'appcookie']
+  config.middleware = ['axios', 'initBody', 'appcookie', 'error_hanlder']
 
   config.initBody = {
     // 是否启用中间件
@@ -48,17 +51,15 @@ export default (appInfo: EggAppInfo) => {
 
   config.axios = {
     // 是否启用中间件
-    enable: true,
 
     // 路由为/news才使用中间件
     match: cxt => {
       const reg = /^\/api/g
       return reg.test(cxt.url)
-    },
+    }
 
     // 路由为/news不使用中间件
     // ignore:'/news',
-    title: 'this is  middleware'
   }
   config.appcookie = {
     // 是否启用中间件
