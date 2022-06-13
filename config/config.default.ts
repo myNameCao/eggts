@@ -32,7 +32,12 @@ export default (appInfo: EggAppInfo) => {
   }
 
   // add your egg config in here
+<<<<<<< HEAD
   config.middleware = ['axios', 'initBody', 'appcookie']
+=======
+
+  config.middleware = ['axios', 'initBody', 'appcookie', 'errorHanlder']
+>>>>>>> a5a5ef772943c7fed85640402fde006629164b62
 
   config.initBody = {
     // 是否启用中间件
