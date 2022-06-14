@@ -1,7 +1,7 @@
 import { Controller } from 'egg'
 
 /**
- * @controller answersheetController
+ * @controller answersheet
  */
 export default class answersheetController extends Controller {
   /**
@@ -10,7 +10,7 @@ export default class answersheetController extends Controller {
    *@description 获取答题卡的列表
    *@request query integer pageSize 页容量
    *@request query string pageNumber 当前页码
-   *@response 200 indexJsonBody
+   *@response 200 listJsonBody
    */
   public async getList() {
     const listRule = {
@@ -29,7 +29,7 @@ export default class answersheetController extends Controller {
    *@summary 答题卡详情
    *@description 获取某一个答题卡的详情
    *@request query integer asId 答题卡id
-   *@response 200 indexJsonBody
+   *@response 200 jsonBody
    */
   public async getDetail() {
     const { ctx, service } = this
@@ -42,7 +42,7 @@ export default class answersheetController extends Controller {
    *@summary 答题卡删除
    *@description 删除某一个答题卡
    *@request query integer asId 答题卡id
-   *@response 200 indexJsonBody
+   *@response 200 jsonBody
    */
   public async delete() {
     const { ctx, service } = this
@@ -54,7 +54,7 @@ export default class answersheetController extends Controller {
    *@summary 答题卡保存
    *@description 保存某一个答题卡
    *@request param model body  答题卡信息
-   *@response 200 indexJsonBody
+   *@response 200 jsonBody
    */
   public async savecard() {
     const { ctx, service } = this
@@ -67,7 +67,7 @@ export default class answersheetController extends Controller {
    *@summary 答题卡下载
    *@description 下载某一个答题卡
    *@request query integer asId 答题卡id
-   *@response 200 indexJsonBody
+   *@response 200 jsonBody
    */
   public async download() {
     const { ctx, service } = this

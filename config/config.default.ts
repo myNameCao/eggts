@@ -34,18 +34,18 @@ export default (appInfo: EggAppInfo) => {
     dirScanner: './app/controller',
     apiInfo: {
       title: 'egg-swagger',
-      description: 'swagger-ui for egg',
+      description: '',
       version: '1.0.0'
     },
     schemes: ['http', 'https'],
     consumes: ['application/json'],
     produces: ['application/json'],
     securityDefinitions: {
-      // apikey: {
-      //   type: 'apiKey',
-      //   name: 'clientkey',
-      //   in: 'header',
-      // },
+      apikey: {
+        type: 'apiKey',
+        name: 'CXTOKEN',
+        in: 'header'
+      }
       // oauth2: {
       //   type: 'oauth2',
       //   tokenUrl: 'http://petstore.swagger.io/oauth/dialog',
@@ -56,7 +56,7 @@ export default (appInfo: EggAppInfo) => {
       //   },
       // },
     },
-    enableSecurity: false,
+    enableSecurity: true,
     // enableValidate: true,
     routerMap: false,
     enable: true

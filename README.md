@@ -31,3 +31,33 @@ $ npm start
 
 - Node.js 8.x
 - Typescript 2.8+
+
+  <br>
+
+# swagger
+
+地址：/swagger-ui.html
+
+### 常用注释
+
+```ts
+@Controller {ControllerName}
+@Router {Mothod} {Path}
+@Request {Position} {Type} {Name} {Description}
+@Response {HttpStatus} {Type} {Description}
+@Deprecated
+@Description {Description}
+@Summary {Summary}
+```
+
+```ts
+// 举例
+/**
+ * @router get /index  路径
+ * @summary 接口的小标题信息
+ * @description 接口的描述信息
+ * @request query integer id 对参数id的描述
+ * @request query string name 对参数name的描述
+ * @response 200 indexJsonBody
+ */
+```

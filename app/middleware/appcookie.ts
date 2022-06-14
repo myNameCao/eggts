@@ -5,7 +5,7 @@ export default () => {
     // 获取CXTOKEN
     const cookie = ctx.get('CXTOKEN')
     if (!cookie) {
-      return ctx.setBody({ error: '缺少token' }, 201, 'error', false)
+      return ctx.setBody({ data: cookie }, 201, 'error', false)
     }
     await next()
   }
