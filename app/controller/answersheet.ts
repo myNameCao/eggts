@@ -10,6 +10,7 @@ export default class answersheetController extends Controller {
    *@description 获取答题卡的列表
    *@request query integer pageSize 页容量
    *@request query string pageNumber 当前页码
+   *@ApiKeyAuth  // 必须写
    *@response 200 listJsonBody
    */
   public async getList() {
@@ -29,6 +30,7 @@ export default class answersheetController extends Controller {
    *@summary 答题卡详情
    *@description 获取某一个答题卡的详情
    *@request query integer asId 答题卡id
+   *@ApiKeyAuth  // 必须写
    *@response 200 jsonBody
    */
   public async getDetail() {
@@ -42,6 +44,7 @@ export default class answersheetController extends Controller {
    *@summary 答题卡删除
    *@description 删除某一个答题卡
    *@request query integer asId 答题卡id
+   *@ApiKeyAuth  // 必须写
    *@response 200 jsonBody
    */
   public async delete() {
@@ -54,6 +57,7 @@ export default class answersheetController extends Controller {
    *@summary 答题卡保存
    *@description 保存某一个答题卡
    *@request param model body  答题卡信息
+   *@ApiKeyAuth  // 必须写
    *@response 200 jsonBody
    */
   public async savecard() {

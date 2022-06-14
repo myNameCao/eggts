@@ -33,7 +33,7 @@ export default (appInfo: EggAppInfo) => {
   config.swaggerdoc = {
     dirScanner: './app/controller',
     apiInfo: {
-      title: 'egg-swagger',
+      title: 'API 文档',
       description: '',
       version: '1.0.0'
     },
@@ -41,7 +41,7 @@ export default (appInfo: EggAppInfo) => {
     consumes: ['application/json'],
     produces: ['application/json'],
     securityDefinitions: {
-      apikey: {
+      ApiKeyAuth: {
         type: 'apiKey',
         name: 'CXTOKEN',
         in: 'header'
