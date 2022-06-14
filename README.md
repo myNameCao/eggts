@@ -58,6 +58,7 @@ $ npm start
  * @description 接口的描述信息
  * @request query integer id 对参数id的描述
  * @request query string name 对参数name的描述
+ * @ApiKeyAuth  // 必须写
  * @response 200 indexJsonBody
  */
 ```

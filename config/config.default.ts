@@ -34,7 +34,7 @@ export default (appInfo: EggAppInfo) => {
     dirScanner: './app/controller',
     apiInfo: {
       title: 'API 文档',
-      description: '',
+      description: '文档',
       version: '1.0.0'
     },
     schemes: ['http', 'https'],
